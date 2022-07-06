@@ -1,0 +1,17 @@
+
+
+<div *ngIf="!Peliculas">
+    <img src="https://www.tennispro.es/skin/frontend/base/default/images/gomage/loadinfo.gif" alt="" srcset="">
+    <p>CARGANDO INFORMACIÓN POR FAVOR ESPERE......</p>
+</div>
+
+<div *ngIf="Peliculas?.length ===0">
+    <p>No hay peliculas a mostrar..</p>
+</div>
+
+<div *ngFor="let Pelicula of Peliculas;let index = index" class="contenedor-peliculas">
+    <div>Pelicula {{index}}: {{Pelicula.titulo}} <button class="btn btn-primary" (click)="remover(index)">Eliminar</button></div>
+    <div>{{Pelicula.fechaLanzamiento|date:"dd-MM-yyyy"}}</div>
+    <div>{{Pelicula.precio|currency}}</div>
+
+</div>
